@@ -1,7 +1,7 @@
 substitutions:
-  name: "template_arduino"
-  fname: "Template Arduino"
-  sname: "temp-ard"
+  name: "template_esp32_arduino"
+  fname: "Template ESP32 Arduino"
+  sname: "temp-esp32-ard"
   apikey: ""
   otapass: ""
   staticip: 'x.x.x.x'
