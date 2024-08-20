@@ -1,0 +1,2 @@
+# esphome
+For Homeassistant/esphome 
