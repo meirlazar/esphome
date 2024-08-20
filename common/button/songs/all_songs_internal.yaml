@@ -1,0 +1,192 @@
+button:
+- platform: template
+  name: "mario_main"
+  id: "mario_main"
+  internal: true
+  on_press:
+    - rtttl.play: "${mario_main}"
+
+- platform: template
+  name: "mario_title"
+  id: "mario_title"
+  internal: true
+  on_press:
+    - rtttl.play: "${mario_title}"
+
+- platform: template
+  name: "SMBtheme"
+  id: "SMBtheme"
+  internal: true
+  on_press:
+    - rtttl.play: "${SMBtheme}"
+
+- platform: template
+  name: "SMBwater"
+  id: "SMBwater"
+  internal: true
+  on_press:
+    - rtttl.play: "${SMBwater}"
+
+- platform: template 
+  name: "SMBunderground"
+  id: "SMBunderground"
+  internal: true
+  on_press:
+    - rtttl.play: "${SMBunderground}"
+
+- platform: template
+  name: "Picaxe"
+  id: "Picaxe"
+  internal: true
+  icon: mdi:button-pointer
+  on_press:
+    - rtttl.play: "${Picaxe}"
+
+- platform: template
+  name: "Simpsons"
+  id: "Simpsons"
+  internal: true
+  on_press:
+    - rtttl.play: "${Simpsons}"
+
+- platform: template
+  name: "Indiana"
+  id: "Indiana"
+  internal: true
+  icon: mdi:button-pointer
+  on_press:
+    - rtttl.play: "${Indiana}"
+
+- platform: template
+  name: "TakeOnMe"
+  id: "TakeOnMe"
+  internal: true
+  on_press:
+    - rtttl.play: "${TakeOnMe}"
+
+- platform: template
+  name: "Entertainer"
+  id: "Entertainer"
+  internal: true
+  on_press:
+    - rtttl.play: "${Entertainer}"
+
+- platform: template
+  name: "Muppets"
+  id: "Muppets"
+  internal: true
+  on_press:
+    - rtttl.play: "${Muppets}"
+
+- platform: template
+  name: "Xfiles"
+  id: "Xfiles"
+  internal: true
+  on_press:
+    - rtttl.play: "${Xfiles}"
+
+- platform: template
+  name: "Looney"
+  id: "Looney"
+  internal: true
+  on_press:
+    - rtttl.play: "${Looney}"
+
+- platform: template
+  name: "TwentyCenFox"
+  id: "TwentyCenFox"
+  internal: true
+  on_press:
+    - rtttl.play: "${TwentyCenFox}"
+
+- platform: template
+  name: "Bond"
+  id: "Bond"
+  internal: true
+  on_press:
+    - rtttl.play: "${Bond}"
+
+- platform: template
+  name: "MASH"
+  id: "MASH"
+  internal: true
+  on_press:
+    - rtttl.play: "${MASH}"
+    
+    
+- platform: template
+  name: "StarWars"
+  id: "StarWars"
+  internal: true
+  on_press:
+    - rtttl.play: "${StarWars}"
+
+- platform: template
+  name: "GoodBad"
+  id: "GoodBad"
+  internal: true
+  on_press:
+    - rtttl.play: "${GoodBad}"
+
+- platform: template
+  name: "TopGun"
+  id: "TopGun"
+  internal: true
+  on_press:
+    - rtttl.play: "${TopGun}"
+
+- platform: template
+  name: "ATeam"
+  id: "ATeam"
+  internal: true
+  on_press:
+    - rtttl.play: "${ATeam}"
+
+- platform: template
+  name: "Flinstones"
+  id: "Flinstones"
+  internal: true
+  on_press:
+    - rtttl.play: "${Flinstones}"
+
+- platform: template
+  name: "Jeopardy"
+  id: "Jeopardy"
+  internal: true
+  on_press:
+    - rtttl.play: "${Jeopardy}"
+
+- platform: template
+  name: "Gadget"
+  id: "Gadget"
+  internal: true
+  on_press:
+    - rtttl.play: "${Gadget}"
+
+- platform: template
+  name: "Smurfs"
+  id: "Smurfs"
+  internal: true
+  on_press:
+    - rtttl.play: "${Smurfs}"
+
+- platform: template
+  name: "MahnaMahna"
+  id: "MahnaMahna"
+  internal: true
+  on_press:
+    - rtttl.play: "${MahnaMahna}"
+
+- platform: template
+  name: "LeisureSuit"
+  id: "LeisureSuit"
+  internal: true
+  on_press:
+    - rtttl.play: "${LeisureSuit}"
+
+- platform: template
+  name: "MissionImp"
+  id: "MissionImp"
+  internal: true
+  on_press:
+    - rtttl.play: "${MissionImp}"

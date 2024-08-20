@@ -1,0 +1,13 @@
+platform: gpio 
+id: "right_door"
+name: "Right Door"
+icon: mdi:door
+pin: 
+  number: ${rdoor}
+  mode: INPUT_PULLUP
+  inverted: False
+device_class: door
+web_server_sorting_weight: ${rdoor_weight}
+filters:
+- delayed_on: 10ms
+- delayed_off: 1s

@@ -1,0 +1,5 @@
+platform: status
+name: status
+entity_category: diagnostic
+web_server_sorting_weight: ${stat_weight}
+

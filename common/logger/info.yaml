@@ -1,0 +1,6 @@
+  logger: 
+    level: INFO
+#    logs:
+##      sensor: INFO
+ #     binary_sensor: INFO
+ #     text_sensor: INFO

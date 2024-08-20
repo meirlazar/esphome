@@ -1,0 +1,13 @@
+platform: gpio 
+id: "left_door"
+name: "Left Door"
+icon: mdi:door
+pin: 
+  number: ${ldoor}
+  mode: INPUT_PULLUP
+  inverted: False
+device_class: door
+web_server_sorting_weight: ${ldoor_weight}
+filters:
+- delayed_on: 10ms
+- delayed_off: 1s

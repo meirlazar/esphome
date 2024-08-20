@@ -1,0 +1,13 @@
+platform: gpio 
+pin: 
+  number: ${dig_sound}
+  inverted: True
+name: "Sound Sensor"
+id: "sound_sensor"
+device_class: sound
+icon: mdi:sound_volume
+web_server_sorting_weight: ${dsound_weight}
+filters:
+- delayed_on: 5ms
+- delayed_off: 1s
+      

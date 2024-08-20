@@ -1,0 +1,34 @@
+platform: neopixelbus
+type: RGB # GRB
+pin: ${led_array}
+num_leds: 6
+name: "led_array_light"
+id: "led_array_light"
+variant: WS2812X
+default_transition_length: 3s
+effects: 
+- addressable_random_twinkle:
+    progress_interval: 250ms
+- addressable_fireworks:
+- addressable_flicker: 
+- addressable_rainbow:
+- addressable_color_wipe:
+- addressable_scan:
+    name: "Scan Effect With Custom Values"
+    move_interval: 100ms
+    scan_width: 6
+- !include addressable_effects/bluez.yaml
+- !include addressable_effects/candy_cane.yaml
+- !include addressable_effects/christmas.yaml
+- !include addressable_effects/fire.yaml
+- !include addressable_effects/flames.yaml
+- !include addressable_effects/lightning.yaml
+- !include addressable_effects/policeall.yaml
+- !include addressable_effects/vesuvius.yaml
+- !include addressable_effects/wheel_of_color.yaml
+- !include addressable_effects/wipe_in.yaml
+- !include addressable_effects/wipe_out.yaml
+- !include addressable_effects/bluescan.yaml
+- !include addressable_effects/goldglitter.yaml
+- !include addressable_effects/lime.yaml
+

@@ -1,0 +1,6 @@
+  pulse:
+    name: "Medium Pulse"
+    transition_length: 4s
+    update_interval: 4s
+    min_brightness: 0%
+    max_brightness: 100%

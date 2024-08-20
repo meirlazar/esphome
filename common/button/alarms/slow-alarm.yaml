@@ -1,0 +1,12 @@
+platform: template
+name: slow-alarm
+id: slow_alarm
+on_press:
+  - repeat:
+      count: 15
+      then:
+        - switch.turn_on: active_buzzer
+        - delay: 1s
+        - switch.turn_off: active_buzzer
+        - delay: 500ms
+

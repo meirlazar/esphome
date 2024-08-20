@@ -1,0 +1,24 @@
+light:
+  - platform: binary
+    name: Red LED
+    id: red_led
+    output: redled
+    restore_mode: RESTORE_AND_OFF
+    icon: mdi:led-on 
+    web_server_sorting_weight:  130
+
+  - platform: binary
+    name: yellow_led
+    id: red_led
+    output: yellowled
+    restore_mode: RESTORE_AND_OFF
+    icon: mdi:led-on 
+    web_server_sorting_weight:  140
+
+  - platform: binary
+    name: Green LED
+    id: green_led
+    output: greenled
+    restore_mode: RESTORE_AND_OFF
+    icon: mdi:led-on 
+    web_server_sorting_weight:  150

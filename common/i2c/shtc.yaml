@@ -1,0 +1,4 @@
+    id: "SHTCx_i2c"
+    sda: ${sda}
+    scl: ${scl}
+    scan: True

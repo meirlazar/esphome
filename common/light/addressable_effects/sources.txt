@@ -1,0 +1,2 @@
+https://github.com/soundstorm/esphome_led_effects/tree/main/effects
+https://esphome.io/components/light/index.html#flicker-effect

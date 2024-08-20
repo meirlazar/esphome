@@ -1,0 +1,15 @@
+platform: gpio
+pin:
+  number: ${tap}
+  inverted: False
+  mode:
+    input: True
+name: "Tap Sensor"
+id: "tap_sensor"
+device_class: vibration
+icon: mdi:vibrate
+web_server_sorting_weight: ${tap_weight}
+filters:
+- delayed_on: 10ms
+- delayed_off: 1s
+      

@@ -1,0 +1,7 @@
+platform: binary
+name: "Onboard LED1"
+id: "onboard_light_1"
+output: light_output1
+restore_mode: RESTORE_AND_OFF
+icon: mdi:led-on 
+web_server_sorting_weight: ${led1_weight}

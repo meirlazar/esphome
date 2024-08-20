@@ -1,0 +1,188 @@
+button:
+- name: "mario_main"
+  platform: template
+  icon: mdi:button-pointer
+  on_press:
+    - rtttl.play: "${mario_main}"
+
+    
+- name: "mario_title"
+  platform: template
+  icon: mdi:button-pointer
+  on_press:
+    - rtttl.play: "${mario_title}"
+
+   
+- name: "SMBtheme"
+  platform: template
+  icon: mdi:button-pointer
+  on_press:
+    - rtttl.play: "${SMBtheme}"
+
+    
+- name: "SMBwater"
+  platform: template
+  icon: mdi:button-pointer
+  on_press:
+    - rtttl.play: "${SMBwater}"
+
+    
+- name: "SMBunderground"
+  platform: template
+  icon: mdi:button-pointer
+  on_press:
+    - rtttl.play: "${SMBunderground}"
+
+    
+- name: "Picaxe"
+  platform: template
+  icon: mdi:button-pointer
+  on_press:
+    - rtttl.play: "${Picaxe}"
+
+    
+- name: "Simpsons"
+  platform: template
+  icon: mdi:button-pointer
+  on_press:
+    - rtttl.play: "${Simpsons}"
+
+    
+- name: "Indiana"
+  platform: template
+  icon: mdi:button-pointer
+  on_press:
+    - rtttl.play: "${Indiana}"
+
+    
+- name: "TakeOnMe"
+  platform: template
+  icon: mdi:button-pointer
+  on_press:
+    - rtttl.play: "${TakeOnMe}"
+
+    
+- name: "Entertainer"
+  platform: template
+  icon: mdi:button-pointer
+  on_press:
+    - rtttl.play: "${Entertainer}"
+
+    
+- name: "Muppets"
+  platform: template
+  icon: mdi:button-pointer
+  on_press:
+    - rtttl.play: "${Muppets}"
+
+    
+- name: "Xfiles"
+  platform: template
+  icon: mdi:button-pointer
+  on_press:
+    - rtttl.play: "${Xfiles}"
+
+    
+- name: "Looney"
+  platform: template
+  icon: mdi:button-pointer
+  on_press:
+    - rtttl.play: "${Looney}"
+
+    
+- name: "TwentyCenFox"
+  platform: template
+  icon: mdi:button-pointer
+  on_press:
+    - rtttl.play: "${TwentyCenFox}"
+
+    
+- name: "Bond"
+  platform: template
+  icon: mdi:button-pointer
+  on_press:
+    - rtttl.play: "${Bond}"
+
+    
+- name: "MASH"
+  platform: template
+  icon: mdi:button-pointer
+  on_press:
+    - rtttl.play: "${MASH}"
+
+    
+- name: "StarWars"
+  platform: template
+  icon: mdi:button-pointer
+  on_press:
+    - rtttl.play: "${StarWars}"
+
+    
+- name: "GoodBad"
+  platform: template
+  icon: mdi:button-pointer
+  on_press:
+    - rtttl.play: "${GoodBad}"
+
+    
+- name: "TopGun"
+  platform: template
+  icon: mdi:button-pointer
+  on_press:
+    - rtttl.play: "${TopGun}"
+
+    
+- name: "ATeam"
+  platform: template
+  icon: mdi:button-pointer
+  on_press:
+    - rtttl.play: "${ATeam}"
+
+    
+- name: "Flinstones"
+  platform: template
+  icon: mdi:button-pointer
+  on_press:
+    - rtttl.play: "${Flinstones}"
+
+    
+- name: "Jeopardy"
+  platform: template
+  icon: mdi:button-pointer
+  on_press:
+    - rtttl.play: "${Jeopardy}"
+
+    
+- name: "Gadget"
+  platform: template
+  icon: mdi:button-pointer
+  on_press:
+    - rtttl.play: "${Gadget}"
+
+    
+- name: "Smurfs"
+  platform: template
+  icon: mdi:button-pointer
+  on_press:
+    - rtttl.play: "${Smurfs}"
+
+    
+- name: "MahnaMahna"
+  platform: template
+  icon: mdi:button-pointer
+  on_press:
+    - rtttl.play: "${MahnaMahna}"
+
+    
+- name: "LeisureSuit"
+  platform: template
+  icon: mdi:button-pointer
+  on_press:
+    - rtttl.play: "${LeisureSuit}"
+
+    
+- name: "MissionImp"
+  platform: template
+  icon: mdi:button-pointer
+  on_press:
+    - rtttl.play: "${MissionImp}"

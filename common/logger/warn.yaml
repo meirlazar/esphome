@@ -1,0 +1,6 @@
+  logger: 
+    level: WARN
+   # logs:
+   ##   sensor: WARN
+    ##  binary_sensor: WARN
+     # text_sensor: WARN

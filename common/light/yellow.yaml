@@ -1,0 +1,9 @@
+platform: monochromatic
+name: yellow_led
+id: yellow_led
+output: yellowled
+restore_mode: ALWAYS_OFF
+icon: mdi:led-on 
+web_server_sorting_weight: ${led_weight}
+effects:
+  - !include ./effects.yaml

@@ -1,0 +1,7 @@
+- id: "sound_sensitivity"
+  type: float
+  initial_value: '36.5'
+  restore_value: yes
+
+- id: sound_volume
+  type: int

@@ -1,0 +1,11 @@
+
+  - !include led_effects/asym_pulse.yaml
+  - !include led_effects/custom_flicker.yaml
+  - !include led_effects/custom_strobe.yaml
+  - !include led_effects/fast_pulse.yaml
+  - !include led_effects/fast_random.yaml
+  - !include led_effects/massive_flicker.yaml
+  - !include led_effects/medium_flicker.yaml
+  - !include led_effects/medium_pulse.yaml
+  - !include led_effects/slow_pulse.yaml
+  - !include led_effects/slow_random.yaml

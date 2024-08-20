@@ -1,0 +1,6 @@
+  logger: 
+    level: NONE
+   # logs:
+#      sensor: NONE
+##      binary_sensor: NONE
+  #    text_sensor: NONE

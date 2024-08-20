@@ -1,0 +1,25 @@
+
+  addressable_lambda:
+    name: Breathing Red
+    update_interval: 16s #Finetune to your liking with the transition lenght below
+    lambda: |-
+      #define Color1 1.0, 0.0, 0.0  //These are the colors defined, feel free to change or extend the list//if you extend the list, dont forget to add them in the switch loop below
+                                         //and remember to adjust the reset counter at the bottom
+      static int state = 0;
+      static int color = 1;
+      auto call = id(printer_lamp).turn_on(); //put the id for your light in here
+      call.set_transition_length(15000);
+      if (state == 0) 
+      {
+        call.set_brightness(0.01);
+      }
+        else if (state == 1)
+      {
+        call.set_rgb(Color1); 
+        call.set_brightness(1.0);
+      }
+      state ++;
+      if (state == 2){
+        state = 0;
+      }
+      call.perform();

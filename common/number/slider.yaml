@@ -1,0 +1,16 @@
+    platform: template
+    id: sound_sensitivity_slider
+    name: "Sensitivity Sound"
+    icon: "mdi:knob"
+    update_interval: 5s
+    initial_value: "36.5"
+    step: 0.1
+    min_value: 20
+    max_value: 40
+    web_server_sorting_weight: ${slider_weight}
+    mode: slider
+    set_action:
+      then:
+        - lambda:  id(sound_sensitivity) = x;
+        
+      

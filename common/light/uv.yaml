@@ -1,0 +1,71 @@
+# this requires;
+
+# substitutions:
+#  uv_leds: ${D12}
+
+# output: 
+#  - !include common/output/ledc_uv.yaml
+
+
+
+platform: monochromatic
+name: "uv_leds"
+id: "uv_leds"
+output: uvleds
+restore_mode: ALWAYS_OFF
+icon: mdi:led-on 
+web_server_sorting_weight: ${led_weight}
+effects:
+      - random:
+      - random:
+          name: "My Slow Random Effect"
+          transition_length: 30s
+          update_interval: 30s
+      - random:
+          name: "My Fast Random Effect"
+          transition_length: 4s
+          update_interval: 5s
+      - pulse:
+      - pulse:
+          name: "Fast Pulse"
+          transition_length: 0.5s
+          update_interval: 0.5s
+          min_brightness: 0%
+          max_brightness: 100%
+      - pulse:
+          name: "Slow Pulse"
+          # transition_length: 1s      # defaults to 1s
+          update_interval: 3s
+      - pulse:
+          name: "Asymmetrical Pulse"
+          transition_length:
+            on_length: 1s
+            off_length: 500ms
+          update_interval: 1s
+      - strobe:
+      - strobe:
+          name: "Strobe Effect With Custom Values"
+          colors:
+            - state: true
+              brightness: 100%
+              red: 100%
+              green: 90%
+              blue: 0%
+              duration: 500ms
+            - state: false
+              duration: 250ms
+            - state: true
+              brightness: 100%
+              red: 0%
+              green: 100%
+              blue: 0%
+              duration: 500ms
+      - flicker:
+      - flicker:
+          name: "Flicker Effect With Custom Values"
+          alpha: 95%
+          intensity: 1.5%
+      - flicker:
+          name: "Massive Flicker Effect"
+          alpha: 90%
+          intensity: 75%

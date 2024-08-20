@@ -1,0 +1,8 @@
+effects:
+  pulse:
+    name: "Asymmetrical Pulse"
+    transition_length:
+      on_length: 1s
+      off_length: "500ms"
+    update_interval: "1s"
+    

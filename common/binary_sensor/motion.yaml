@@ -1,0 +1,12 @@
+platform: gpio 
+name: "Motion Sensor"
+id: "motion_sensor"
+device_class: motion
+icon: mdi:motion-sensor
+web_server_sorting_weight: ${mot_weight}
+pin: 
+  number: "${motion}" 
+filters:
+- delayed_off: 1s
+  
+  

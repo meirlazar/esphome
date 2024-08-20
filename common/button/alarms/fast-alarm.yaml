@@ -1,0 +1,12 @@
+platform: template
+name: fast-alarm
+id: fast_alarm
+on_press:
+  - repeat:
+      count: 30
+      then:
+        - switch.turn_on: active_buzzer
+        - delay: 100ms
+        - switch.turn_off: active_buzzer
+        - delay: 50ms
+web_server_sorting_weight:  1000

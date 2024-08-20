@@ -1,0 +1,9 @@
+platform: monochromatic
+name: list_of_leds
+id: list_of_leds
+output: ryg_leds
+restore_mode: ALWAYS_OFF
+icon: mdi:led-on 
+web_server_sorting_weight: ${led_weight}
+effects:
+  - !include ./effects.yaml

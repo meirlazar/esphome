@@ -1,0 +1,15 @@
+platform: gpio
+pin:
+  number: ${vibrate}
+  inverted: False
+  mode:
+    input: True
+name: "Vibration Sensor"
+id: "vibration_sensor"
+device_class: vibration
+icon: mdi:vibrate
+web_server_sorting_weight: ${vibe_weight}
+filters:
+- delayed_on: 10ms
+- delayed_off: 1s
+      

@@ -1,0 +1,80 @@
+################################  DO NOT TOUCH - WORKING !!!! #################################
+# use like this 
+# button: 
+#  !include common/button/alarms/all.yaml
+
+# or like this 
+# button: !include common/button/alarms/all.yaml
+
+- platform: template
+  name: "fast_buzzer_button"
+  id: fast_buzzer_button
+  internal: true # remove internal to show it in the webui
+  on_press:
+    then:
+      - repeat:
+          count: 15
+          then:
+          - switch.turn_on: active_buzzer
+          - delay: 300ms                
+          - switch.turn_off: active_buzzer   
+          - delay: 100ms
+   
+    
+- platform: template
+  name: "slow_buzzer_button"
+  id: slow_buzzer_button
+  internal: true   # remove internal to show it in the webui
+  on_press:
+    then:
+      - repeat:
+          count: 7
+          then:
+          - switch.turn_on: active_buzzer
+          - delay: 1000ms                
+          - switch.turn_off: active_buzzer   
+          - delay: 300ms
+
+- platform: template
+  name: "sos_buzzer_button"
+  id: sos_buzzer_button
+  internal: true # remove internal to show it in the webui
+  on_press:
+    then:
+    - repeat:
+        count: 3
+        then:
+        - switch.turn_on: active_buzzer
+        - delay: 200ms                
+        - switch.turn_off: active_buzzer   
+        - delay: 500ms
+    - repeat:
+        count: 3
+        then:
+        - switch.turn_on: active_buzzer
+        - delay: 600ms                
+        - switch.turn_off: active_buzzer   
+        - delay: 500ms
+    - repeat:
+        count: 3
+        then:
+        - switch.turn_on: active_buzzer
+        - delay: 200ms                
+        - switch.turn_off: active_buzzer   
+        - delay: 500ms
+
+    
+- platform: template
+  name: "chirp_buzzer_button"
+  id: chirp_buzzer_button
+  internal: true   # remove internal to show it in the webui
+  on_press:
+    then:
+      - repeat:
+          count: 1
+          then:
+          - switch.turn_on: active_buzzer
+          - delay: 200ms                
+          - switch.turn_off: active_buzzer   
+          - delay: 1000ms
+
