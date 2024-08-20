@@ -1,0 +1,84 @@
+substitutions:
+  name: "template_arduino"
+  fname: "Template Arduino"
+  sname: "temp-ard"
+  apikey: ""
+  otapass: ""
+  staticip: 'x.x.x.x'
+
+  <<: !include common/substitutions/esp32_pins.yaml 
+
+  led1: ${D2}
+  dig_sound: ${D27}
+  all_leds: ${D33}
+  motion: ${D14}
+  active_buzzer: ${D23}
+  passive_buzzer: ${D18}
+  vibrate: ${D13}
+  sonictrig: ${TX0}
+  sonicecho: ${RX0}
+  tap: ${D12}
+  sda: ${D21} 
+  scl: ${D22}
+  door: ${D25}
+  uv_leds: ${D32}
+  led_array: ${D26}
+
+################################
+# logger, esphome, api, ota, wifi, etc.
+<<: !include common/logger/none.yaml
+esphome: !include common/esphome_esp32.yaml
+esp32: !include common/esp32.yaml
+api: !include common/api.yaml  
+ota: !include common/ota/config.yaml
+web_server: !include common/webserver.yaml
+wifi: !include common/wifi.yaml
+i2c: !include common/i2c/aht_bmp.yaml
+captive_portal:
+
+# buttons, switches, menus, light, output, rtttl, sctipts
+rtttl: !include common/rtttl/passive_buzzer.yaml
+button: !include common/button/alarms/all.yaml
+switch: !include common/switch/restart_modes_activebuzzer.yaml
+select: !include common/select/alarm_restart_songs_menus.yaml
+text_sensor: !include common/text_sensor/firmware_version.yaml
+
+light: 
+  - !include common/light/onboard.yaml
+  - !include common/light/all_leds.yaml
+  - !include common/light/uv.yaml
+  - !include common/light/led_array.yaml
+
+output:
+  - !include common/output/onboard.yaml
+  - !include common/output/ledc_passive_buzzer.yaml
+  - !include common/output/ledc_all_leds.yaml
+  - !include common/output/ledc_uv.yaml
+
+
+# binary_sensors, sensors, time, etc
+binary_sensor:  
+  - !include common/binary_sensor/tap.yaml
+  - !include common/binary_sensor/motion.yaml
+  - !include common/binary_sensor/vibrate.yaml
+  - !include common/binary_sensor/sound_digital.yaml
+  - !include common/binary_sensor/door.yaml
+
+sensor: 
+  - !include common/sensor/uptime.yaml
+  - !include common/sensor/HI.yaml
+  - !include common/sensor/TF.yaml
+  - !include common/sensor/AH.yaml
+  - !include common/sensor/wifi_signal_db.yaml
+  - !include common/sensor/wifi_signal_strength.yaml
+  - !include common/sensor/wifi_signal_percent.yaml
+  - !include common/sensor/ultrasonic_feet.yaml
+  - !include common/sensor/ultrasonic_inches.yaml
+  - !include common/sensor/aht20.yaml
+  - !include common/sensor/bmp280.yaml
+  - !include common/sensor/pressure-atm.yaml
+  - !include common/sensor/pressure-inHg.yaml
+
+time: !include common/time.yaml
+
+
