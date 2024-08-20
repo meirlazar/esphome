@@ -1,0 +1,73 @@
+substitutions:
+  name: "template_8266_arduino"
+  fname: "template 8266 arduino"
+  sname: "temp-8266-ard"
+  apikey: ""
+  otapass: ""
+  staticip: x.x.x.x
+
+  <<: !include common/substitutions/8266_pins.yaml
+
+ # led1: ${D0}  
+  led_array: ${D7}
+  motion: ${D6} 
+  tap: ${D2}
+  asound: A0
+  sonictrig: ${TX}
+  sonicecho: ${RX}
+  sda: ${D5}
+  scl: ${D3}
+  door: ${D1}
+  vibrate: ${D0}
+  active_buzzer: ${D4}
+
+globals: !include common/globals/sound.yaml
+esphome: !include common/esphome_8266.yaml
+esp8266: !include common/esp8266.yaml
+api: !include common/api.yaml
+<<: !include common/logger/none.yaml
+
+
+light:
+  - !include common/light/led_array.yaml
+
+text_sensor: !include common/text_sensor/noise_firmware_version.yaml
+
+switch: !include common/switch/restart_modes_activebuzzer.yaml
+button: !include common/button/alarms/all.yaml
+select: !include common/select/alarm_restart_menus.yaml
+
+wifi: !include common/wifi.yaml
+ota: !include common/ota/config.yaml
+web_server: !include common/web_server/web.yaml
+i2c: !include common/i2c/shtc.yaml
+
+binary_sensor:  
+  - !include common/binary_sensor/tap.yaml
+  - !include common/binary_sensor/motion.yaml
+  - !include common/binary_sensor/vibrate.yaml
+  - !include common/binary_sensor/door.yaml
+
+sensor:
+  - !include common/sensor/ultrasonic_feet.yaml
+  - !include common/sensor/ultrasonic_inches.yaml
+
+  - !include common/sensor/shtc3_temp_humidity.yaml
+  - !include common/sensor/HI.yaml
+  - !include common/sensor/TF.yaml
+  - !include common/sensor/AH.yaml
+
+  - !include common/sensor/asound.yaml
+  - !include common/sensor/volume.yaml
+  - !include common/sensor/raw_sound.yaml
+
+  - !include common/sensor/wifi_signal_db.yaml
+  - !include common/sensor/wifi_signal_strength.yaml
+  - !include common/sensor/wifi_signal_percent.yaml
+  - !include common/sensor/uptime.yaml
+
+time: !include common/time.yaml
+number: !include common/number/slider.yaml
+
+captive_portal:
+
