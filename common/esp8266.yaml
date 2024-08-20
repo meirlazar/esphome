@@ -1,0 +1,3 @@
+  board: nodemcuv2
+  framework:
+    version: recommended

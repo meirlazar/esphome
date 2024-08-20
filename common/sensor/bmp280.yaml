@@ -1,0 +1,48 @@
+platform: bmp280
+address: 0x77
+update_interval: 3s
+iir_filter: 16x
+
+temperature:
+  name: "bmp_temperature_celcius"
+  oversampling: 16x
+  filters:
+  - filter_out: nan
+  - heartbeat: 10s
+  - sliding_window_moving_average:
+      window_size: 9
+      send_every: 9
+  - or:
+     - throttle: 30s
+     - delta: 0.2
+ # - multiply: 1.8 # to convert mto F
+ # - offset: 32.0
+#  - lambda: return x;
+# - lambda: return x * (9.0/5.0) + 32.0;
+  accuracy_decimals: 1
+  unit_of_measurement: "°C"
+  state_class: "measurement"
+  device_class: "temperature"
+  icon: mdi:temperature-celcius
+  web_server_sorting_weight: ${tc_weight}
+
+pressure:
+  name: "pressure_hPa"
+  id: "pressure_hPa"
+  unit_of_measurement: "hPa"
+  accuracy_decimals: 2
+  web_server_sorting_weight: ${presshPa_weight}
+  icon: mdi:gauge
+  filters: 
+  - filter_out: nan
+  - heartbeat: 10s
+  - sliding_window_moving_average:
+      window_size: 9
+      send_every: 9
+  - or:
+    - throttle: 30s
+    - delta: 0.2
+ # - round: 2
+  #- lambda: return printf ( "%.2f", x);
+
+

@@ -1,0 +1,7 @@
+platform: ledc
+id: allleds
+pin: ${all_leds}
+min_power: 0
+max_power: 1
+zero_means_zero: True
+inverted: False

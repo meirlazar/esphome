@@ -1,0 +1,15 @@
+platform: copy 
+source_id: "pressure_hPa"
+name: "pressure_atm"
+id: "pressure_atm"
+unit_of_measurement: "atm"
+accuracy_decimals: 2
+icon: mdi:gauge
+web_server_sorting_weight: ${pressatm_weight}
+filters:
+  - filter_out: nan
+  - multiply: 0.000987   
+ # - round: 2
+ # - lambda: return printf ( "%.2f", x);
+
+

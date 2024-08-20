@@ -1,0 +1,13 @@
+    platform: template
+    id: ryg_leds
+    type: float
+    write_action:
+      - output.set_level:
+          id: red
+          level: !lambda 'return state;'
+      - output.set_level:
+          id: yellow
+          level: !lambda 'return state;'
+      - output.set_level:
+          id: green
+          level: !lambda 'return state;'

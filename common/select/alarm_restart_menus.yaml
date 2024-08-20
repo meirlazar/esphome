@@ -1,0 +1,107 @@
+- platform: template
+  name: alarm_menu
+  id: alarm_menu
+  icon: mdi:format-list-bulleted
+  optimistic: True
+  restore_value: False
+  initial_option: "None"
+  web_server_sorting_weight: ${almenu_weight}
+  options:
+  - "None"
+  - "fast alarm"
+  - "slow alarm"
+  - "sos alarm"
+  - "chirp"
+  set_action:
+  - logger.log:
+      format: "Chosen option: %s"
+      args: ["x.c_str()"]
+  - lambda: |-
+      id(alarm_menu).state = x.c_str(); 
+  on_value:
+    then:
+      - if:
+          condition:
+            lambda: 'return x == "fast alarm";'
+          then: 
+            - button.press: fast_buzzer_button
+      - if:
+          condition:
+            lambda: 'return x == "slow alarm";'
+          then: 
+            - button.press: slow_buzzer_button
+      - if:
+          condition:
+            lambda: 'return x == "sos alarm";'
+          then: 
+            - button.press: sos_buzzer_button
+      - if:
+          condition:
+            lambda: 'return x == "chirp";'
+          then: 
+            - button.press: chirp_buzzer_button
+     
+      
+- platform: template
+  name: restart_menu
+  id: restart_menu
+  icon: mdi:format-list-bulleted
+  optimistic: true
+  restore_value: false
+  initial_option: "None"
+  web_server_sorting_weight: ${restmenu_weight}
+  options:
+  - "None"
+  - "Reboot"
+  - "Safe-Mode"
+  - "Shutdown"
+  set_action:
+  - logger.log:
+      format: "Chosen option: %s"
+      args: ["x.c_str()"]
+  - lambda: |-
+      id(restart_menu).state = x.c_str(); 
+  on_value:
+    then:
+      - if:
+          condition:
+            lambda: 'return x == "Reboot";'
+          then: 
+            - switch.turn_on: restart_switch
+      - if:
+          condition:
+            lambda: 'return x == "Safe-Mode";'
+          then: 
+            - switch.turn_on: safemode_switch
+      - if:
+          condition:
+            lambda: 'return x == "Shutdown";'
+          then: 
+            - switch.turn_on: shutdown_switch
+            
+            
+            
+#################### using the ACTIVE buzzer requires these configs/YAMLS; ############################
+#substitutions: 
+# active_buzzer: ${D22}
+#switch: 
+#  - !include common/switch/active_buzzer.yaml (THIS IS THE OUTPUT - NO NEED FOR A SEPARATE OUTPUT FILE)
+
+#script:
+#  - !include common/script/slow-alarm.yaml - TURNS THE SWITCH ON AND OFF AS REQUESTED
+#  - !include common/script/fast-alarm.yaml - TURNS THE SWITCH ON AND OFF AS REQUESTED
+
+################################             #############################
+#button:                                                                 #
+#- !include common/button/alarms/fast-alarm.yaml - CALLS THE FAST SCRIPT #
+#- !include common/button/alarms/slow-alarm.yaml - CALLS THE SLOW SCRIPT #
+# CHOOSE EITHER BUTTONS ABOVE OR TRHE DROPDOWN MENU BELOW                #
+# select: !include common/select/alarm_menu.yaml                         #
+##################################          ##############################
+##########################################################################################################
+# requires
+
+#script:
+#  - !include common/switch/restart.yaml
+#  - !include common/switch/safe_mode.yaml
+#  - !include common/switch/shutdown.yaml

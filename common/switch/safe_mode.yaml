@@ -1,0 +1,6 @@
+platform: safe_mode
+name: Safe Mode Switch
+id: safemode_switch
+icon: mdi:restart-alert 
+entity_category: "config"
+web_server_sorting_weight: 401

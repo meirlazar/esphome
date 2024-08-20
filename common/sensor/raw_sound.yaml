@@ -1,0 +1,10 @@
+    platform: template
+    name: "RAW Sound"
+    icon: "mdi:volume-source"
+    unit_of_measurement: "%"
+    update_interval: 5s
+    lambda: return(map(id(sound_volume),1,1024,0,100));
+    web_server_sorting_weight: ${rsound_weight}
+
+
+

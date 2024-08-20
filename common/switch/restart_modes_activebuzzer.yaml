@@ -1,0 +1,29 @@
+# for buzzer and restart mode switches all in one
+# switch: !include common/switch/restart_modes_activebuzzer.yaml (NO DASH)
+  
+    - platform: restart
+      id: restart_switch
+      name: restart_switch
+      icon: mdi:restart-alert 
+      entity_category: "config"
+      internal: true
+
+    - platform: shutdown
+      id: shutdown_switch
+      name: shutdown_switch
+      icon: mdi:restart
+      entity_category: "config"
+      internal: true
+      
+    - platform: safe_mode
+      id: safemode_switch
+      name: safemode_switch
+      icon: mdi:restart-alert 
+      entity_category: "config"
+      internal: true
+    
+    - platform: gpio
+      pin: ${active_buzzer}
+      id: "active_buzzer"
+      name: "active_buzzer"
+      internal: true

@@ -1,0 +1,44 @@
+platform: aht10
+variant: AHT20
+address: 0x38
+# address: 0x77
+i2c_id: bus_a
+
+update_interval: 3s
+
+temperature:
+  name: "aht20_temperature_celcius"
+  id: "aht20_temperature_celcius"
+  accuracy_decimals: 2
+  unit_of_measurement: "°C" 
+  filters:
+  - filter_out: nan
+  - heartbeat: 10s
+  - sliding_window_moving_average:
+      window_size: 9
+      send_every: 9
+  - or:
+    - throttle: 30s
+    - delta: 0.2
+#  - multiply: 1.8 # to convert mto F
+#  - offset: 32.0
+#  - lambda: return x;
+  web_server_sorting_weight: ${tc_weight}
+
+        
+humidity:
+  name: "aht20_humidity"
+  id: "aht20_humidity"
+  accuracy_decimals: 1
+  filters:
+  - filter_out: nan
+  - heartbeat: 10s
+  - sliding_window_moving_average:
+      window_size: 9
+      send_every: 9
+  - or:
+    - throttle: 30s
+    - delta: 0.2
+  web_server_sorting_weight: ${hum_weight}
+
+

@@ -1,0 +1,42 @@
+  platform: template
+  name: new_song_menu
+  id: new_song_menu
+  icon: mdi:format-list-bulleted
+  restore_value: true
+  options:
+  - ""
+  - "mario_main"
+  - "mario_title"
+  - "SMBtheme"
+  - "SMBwater"
+  - "SMBunderground"
+  - "Picaxe"
+  - "Simpsons"
+  - "Indiana"
+  - "TakeOnMe"
+  - "Entertainer"
+  - "Muppets"
+  - "Xfiles"
+  - "Looney"
+  - "TwentyCenFox"
+  - "Bond"
+  - "MASH"
+  - "StarWars"
+  - "GoodBad"
+  - "TopGun"
+  - "ATeam"
+  - "Flinstones"
+  - "Jeopardy"
+  - "Gadget"
+  - "Smurfs"
+  - "MahnaMahna"
+  - "LeisureSuit"
+  - "MissionImp"
+  set_action:
+    then:
+      - lambda: "id(rtttl_play).execute(x, 100);"
+              
+#  on_value:
+#    then:
+#      - rtttl.play: 
+#          rtttl: !lambda 'return id(new_song_menu).state;'

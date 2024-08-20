@@ -1,0 +1,14 @@
+    encryption:
+      key: ${apikey}
+    reboot_timeout: 180s
+    
+    services:
+      - service: rtttl_play
+        variables:
+          song: string
+          volume: int # 1-100; 0 means unset
+        then:
+          - lambda: "id(script_rtttl_play).execute(song, volume);"
+            
+        
+

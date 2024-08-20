@@ -1,0 +1,7 @@
+    platform: wifi_signal
+    name: "Wi-Fi Signal Strength"
+    id: "rssi"
+    update_interval: 60s
+    icon: mdi:wifi-strength-outline
+    web_server_sorting_weight: ${wifistr_weight}
+    

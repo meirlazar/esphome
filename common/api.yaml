@@ -1,0 +1,3 @@
+encryption:
+  key: ${apikey}
+reboot_timeout: 120s

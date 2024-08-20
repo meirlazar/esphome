@@ -1,0 +1,26 @@
+  platform: template
+  name: Source_1_Priority
+  id: Source_1_Priority
+  icon: mdi:format-list-bulleted
+  optimistic: true
+  restore_value: true
+  initial_option: "Toggle LED"
+  options:
+  - "Toggle LED"
+  - "Restart"
+  - "Safe Mode"
+  set_action:
+    - logger.log:
+        format: "Chosen option: %s"
+        args: ["x.c_str()"]
+    - lambda: |-
+        id(Source_1_Priority).state = x.c_str(); 
+  on_value:
+    lambda: |-
+      auto index1 = id(Source_1_Priority).active_index();
+      if (index1.value() == i) {
+        auto call = id(Source_1_Priority).make_call();
+        call.set_index(id(source1_index));
+        call.perform();      
+        id(source1_index) = i;
+      }

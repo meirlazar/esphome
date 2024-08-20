@@ -1,0 +1,49 @@
+    platform: shtcx
+    i2c_id: SHTCx_i2c
+
+    humidity:
+      filters:
+        - filter_out: nan
+        - heartbeat: 10s
+        - sliding_window_moving_average:
+            window_size: 9
+            send_every: 9
+        - or:
+            - throttle: 30s
+            - delta: 0.2
+      accuracy_decimals: 2
+      unit_of_measurement: "%"
+      name: "humidity"
+      id: "humidity"
+      device_class: "humidity"
+      state_class: "measurement"
+      icon: mdi:water-thermometer
+      web_server_sorting_weight: ${hum_weight}
+
+
+    temperature:
+      filters:
+        - filter_out: nan
+        - heartbeat: 10s
+        - sliding_window_moving_average:
+            window_size: 9
+            send_every: 9
+        - or:
+            - throttle: 30s
+            - delta: 0.2
+      #  - multiply: 1.8 # to convert mto F
+      #  - offset: 32.0
+      #  - lambda: return x;
+        # - lambda: return x * (9.0/5.0) + 32.0;
+      accuracy_decimals: 2
+      unit_of_measurement: "°C"
+      state_class: "measurement"
+      device_class: "temperature"
+      name: "temperature_celcius"
+      id: "temperature_celcius"
+      icon: mdi:temperature-celcius
+      web_server_sorting_weight: ${tc_weight}
+
+    address: 0x70
+    update_interval: 3s
+    

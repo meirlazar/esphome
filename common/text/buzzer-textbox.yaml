@@ -1,0 +1,13 @@
+    platform: template
+    name: Buzzer Test
+    icon: mdi:form-textbox
+    min_length: 0
+    max_length: 255
+    mode: text
+    # optimistic: false # do not set state and optimistic = false - we dont keep this value
+    entity_category: diagnostic
+    set_action:
+      then:
+        - lambda: "id(script_rtttl_play).execute(x, 100);"
+
+    

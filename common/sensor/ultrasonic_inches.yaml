@@ -1,0 +1,16 @@
+    platform: copy 
+    source_id: "ultrasonic_sensor_feet"
+    name: "ultrasonic Sensor inches"
+    id: "ultrasonic_sensor_inches"
+    unit_of_measurement: "inches"
+    accuracy_decimals: 3
+    state_class: "measurement"
+    device_class: "distance"
+    web_server_sorting_weight: ${sonicin_weight}
+    filters:
+      - filter_out: nan
+      - multiply: 12
+      - lambda: return x;
+
+
+

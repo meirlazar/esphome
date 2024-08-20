@@ -1,0 +1,7 @@
+platform: ledc
+id: yellow
+pin: ${yellow}
+min_power: 1%
+max_power: 100%
+zero_means_zero: true
+    

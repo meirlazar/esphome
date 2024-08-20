@@ -1,0 +1,9 @@
+    id: fast_alarm
+    then:
+      - repeat:
+          count: 30
+          then:
+            - switch.turn_on: active_buzzer
+            - delay: 100ms
+            - switch.turn_off: active_buzzer
+            - delay: 50ms

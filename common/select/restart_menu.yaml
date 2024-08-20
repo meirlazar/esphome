@@ -1,0 +1,44 @@
+  platform: template
+  name: restart_menu
+  id: restart_menu
+  icon: mdi:format-list-bulleted
+  optimistic: true
+  restore_value: false
+  initial_option: "None"
+  web_server_sorting_weight: ${restmenu_weight}
+  options:
+  - "None"
+  - "Reboot"
+  - "Safe-Mode"
+  - "Shutdown"
+  set_action:
+  - logger.log:
+      format: "Chosen option: %s"
+      args: ["x.c_str()"]
+  - lambda: |-
+      id(restart_menu).state = x.c_str(); 
+  on_value:
+    then:
+      - if:
+          condition:
+            lambda: 'return x == "Reboot";'
+          then: 
+            - switch.turn_on: restart_switch
+      - if:
+          condition:
+            lambda: 'return x == "Safe-Mode";'
+          then: 
+            - switch.turn_on: safemode_switch
+      - if:
+          condition:
+            lambda: 'return x == "Shutdown";'
+          then: 
+            - switch.turn_on: shutdown_switch
+            
+            
+# requires
+
+#script:
+#  - !include common/switch/restart.yaml
+#  - !include common/switch/safe_mode.yaml
+#  - !include common/switch/shutdown.yaml

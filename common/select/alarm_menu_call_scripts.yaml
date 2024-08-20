@@ -1,0 +1,21 @@
+  platform: template
+  name: alarm_menu_call_scripts
+  id: alarm_menu_call_scripts
+  icon: mdi:format-list-bulleted
+  optimistic: true
+  restore_value: true
+  initial_option: ""
+  options:
+  - ""
+  - "fast-alarm"
+  - "slow-alarm"
+  on_value:
+  #set_action:
+      then:
+        - lambda: |-
+            int x = id(alarm_menu_call_scripts).state;
+            id(alarm_menu_call_scripts).publish_state(x).execute();
+        # lambda: |- error in CONF_RESTORE_VALUE
+    #       return {""};
+
+    

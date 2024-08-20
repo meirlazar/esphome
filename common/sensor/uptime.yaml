@@ -1,0 +1,8 @@
+  platform: uptime
+  name: "uptime"
+  filters:
+  - lambda: return x / 60.0;
+  unit_of_measurement: "minutes"
+  icon: mdi:timelapse
+  entity_category: "diagnostic"
+  web_server_sorting_weight: ${uptime_weight}

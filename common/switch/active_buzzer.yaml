@@ -1,0 +1,7 @@
+- platform: gpio
+  pin: ${active_buzzer}
+  id: "active_buzzer"
+  name: "active_buzzer"
+  internal: true
+
+

@@ -1,0 +1,54 @@
+  platform: template
+  name: alarm_menu
+  id: alarm_menu
+  icon: mdi:format-list-bulleted
+  optimistic: True
+  restore_value: False
+  options:
+  - ""
+  - "fast alarm"
+  - "slow alarm"
+  - "sos alarm"
+  set_action:
+  - logger.log:
+      format: "Chosen option: %s"
+      args: ["x.c_str()"]
+  - lambda: |-
+      id(alarm_menu).state = x.c_str(); 
+  on_value:
+    then:
+      - if:
+          condition:
+            lambda: 'return x == "fast alarm";'
+          then: 
+            - switch.turn_on: fast_buzzer_switch
+      - if:
+          condition:
+            lambda: 'return x == "slow alarm";'
+          then: 
+            - switch.turn_on: slow_buzzer_switch
+      - if:
+          condition:
+            lambda: 'return x == "sos alarm";'
+          then: 
+            - switch.turn_on: sos_buzzer_switch
+     
+      
+#################### using the ACTIVE buzzer requires these configs/YAMLS; ############################
+#substitutions: 
+# active_buzzer: ${D22}
+#switch: 
+#  - !include common/switch/active_buzzer.yaml (THIS IS THE OUTPUT - NO NEED FOR A SEPARATE OUTPUT FILE)
+
+#script:
+#  - !include common/script/slow-alarm.yaml - TURNS THE SWITCH ON AND OFF AS REQUESTED
+#  - !include common/script/fast-alarm.yaml - TURNS THE SWITCH ON AND OFF AS REQUESTED
+
+################################             #############################
+#button:                                                                 #
+#- !include common/button/alarms/fast-alarm.yaml - CALLS THE FAST SCRIPT #
+#- !include common/button/alarms/slow-alarm.yaml - CALLS THE SLOW SCRIPT #
+# CHOOSE EITHER BUTTONS ABOVE OR TRHE DROPDOWN MENU BELOW                #
+# select: !include common/select/alarm_menu.yaml                         #
+##################################          ##############################
+##########################################################################################################

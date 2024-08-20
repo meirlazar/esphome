@@ -1,0 +1,10 @@
+output: passive_buzzer_output
+id: passive_rtttl
+# gain: 100%
+
+##### using the PASSIVE buzzer requires these configs/YAMLS; ########
+#substitutions: 
+# passive_buzzer: ${D22} - what pin it is on
+#rtttl: !include common/rtttl/passive_buzzer.yaml - THIS ALLOWS US TO USE rtttl.play  rtttl.pause etc. - THE CONFIG POINTS TO THE PASSIVE BUZZER OUTPUT
+#output: - !include common/output/ledc_passive_buzzer.yaml - OUTPUT POINTS TO PASSIVE BUZZER PIN
+# select: !include common/select/lambda_songs_select.yaml - based on dropdowen selection runs the rtttl.play 

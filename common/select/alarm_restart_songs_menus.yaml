@@ -1,0 +1,340 @@
+- platform: template
+  name: alarm_menu
+  id: alarm_menu
+  icon: mdi:format-list-bulleted
+  optimistic: True
+  restore_value: False
+  initial_option: "None"
+  web_server_sorting_weight: ${almenu_weight}
+  options:
+  - "None"
+  - "fast alarm"
+  - "slow alarm"
+  - "sos alarm"
+  - "chirp"
+  set_action:
+  - logger.log:
+      format: "Chosen option: %s"
+      args: ["x.c_str()"]
+  - lambda: |-
+      id(alarm_menu).state = x.c_str(); 
+  on_value:
+    then:
+      - if:
+          condition:
+            lambda: 'return x == "fast alarm";'
+          then: 
+            - button.press: fast_buzzer_button
+      - if:
+          condition:
+            lambda: 'return x == "slow alarm";'
+          then: 
+            - button.press: slow_buzzer_button
+      - if:
+          condition:
+            lambda: 'return x == "sos alarm";'
+          then: 
+            - button.press: sos_buzzer_button
+      - if:
+          condition:
+            lambda: 'return x == "chirp";'
+          then: 
+            - button.press: chirp_buzzer_button
+     
+      
+- platform: template
+  name: restart_menu
+  id: restart_menu
+  icon: mdi:format-list-bulleted
+  optimistic: true
+  restore_value: false
+  initial_option: "None"
+  web_server_sorting_weight: ${restmenu_weight}
+  options:
+  - "None"
+  - "Reboot"
+  - "Safe-Mode"
+  - "Shutdown"
+  set_action:
+  - logger.log:
+      format: "Chosen option: %s"
+      args: ["x.c_str()"]
+  - lambda: |-
+      id(restart_menu).state = x.c_str(); 
+  on_value:
+    then:
+      - if:
+          condition:
+            lambda: 'return x == "Reboot";'
+          then: 
+            - switch.turn_on: restart_switch
+      - if:
+          condition:
+            lambda: 'return x == "Safe-Mode";'
+          then: 
+            - switch.turn_on: safemode_switch
+      - if:
+          condition:
+            lambda: 'return x == "Shutdown";'
+          then: 
+            - switch.turn_on: shutdown_switch
+            
+            
+            
+
+- platform: template
+  name: song_menu
+  id: song_menu
+  icon: mdi:format-list-bulleted
+  optimistic: true
+  web_server_sorting_weight: ${songmenu_weight}
+  restore_value: false
+  initial_option: "None"
+  options:
+  - "None"
+  - "mario_main"
+  - "mario_title"
+  - "SMBtheme"
+  - "SMBwater"
+  - "SMBunderground"
+  - "Picaxe"
+  - "Simpsons"
+  - "Indiana"
+  - "TakeOnMe"
+  - "Entertainer"
+  - "Muppets"
+  - "Xfiles"
+  - "Looney"
+  - "TwentyCenFox"
+  - "Bond"
+  - "MASH"
+  - "StarWars"
+  - "GoodBad"
+  - "TopGun"
+  - "ATeam"
+  - "Flinstones"
+  - "Jeopardy"
+  - "Gadget"
+  - "Smurfs"
+  - "MahnaMahna"
+  - "LeisureSuit"
+  - "MissionImp"
+  - "ItchyScratchy"
+  - "AxelF"
+  - "HappyBirthday"
+  - "BTTF"
+  - "Pacman"
+  - "Holzmichel"
+  - "Larry"
+  set_action:
+  - logger.log:
+      format: "Chosen option: %s"
+      args: ["x.c_str()"]
+  - lambda: |-
+      id(song_menu).state = x.c_str(); 
+  on_value:
+    then:
+      - if:
+          condition:
+            lambda: 'return x == "mario_main";'
+          then: 
+            - rtttl.play: "${mario_main}"
+      - if:
+          condition:
+            lambda: 'return x == "mario_title";'
+          then: 
+            - rtttl.play: "${mario_title}"
+      - if:
+          condition:
+            lambda: 'return x == "SMBtheme";'
+          then: 
+            - rtttl.play: "${SMBtheme}"
+      - if:
+          condition:
+            lambda: 'return x == "SMBwater";'
+          then: 
+            - rtttl.play: "${SMBwater}"
+      - if:
+          condition:
+            lambda: 'return x == "SMBunderground";'
+          then: 
+            - rtttl.play: "${SMBunderground}"
+      - if:
+          condition:
+            lambda: 'return x == "Picaxe";'
+          then: 
+            - rtttl.play: "${Picaxe}"
+      - if:
+          condition:
+            lambda: 'return x == "Simpsons";'
+          then: 
+            - rtttl.play: "${Simpsons}"
+      - if:
+          condition:
+            lambda: 'return x == "Indiana";'
+          then: 
+            - rtttl.play: "${Indiana}"
+      - if:
+          condition:
+            lambda: 'return x == "TakeOnMe";'
+          then: 
+            - rtttl.play: "${TakeOnMe}"
+      - if:
+          condition:
+            lambda: 'return x == "Entertainer";'
+          then: 
+            - rtttl.play: "${Entertainer}"
+      - if:
+          condition:
+            lambda: 'return x == "Muppets";'
+          then: 
+            - rtttl.play: "${Muppets}"
+      - if:
+          condition:
+            lambda: 'return x == "Xfiles";'
+          then: 
+            - rtttl.play: "${Xfiles}"
+      - if:
+          condition:
+            lambda: 'return x == "Looney";'
+          then: 
+            - rtttl.play: "${Looney}"
+      - if:
+          condition:
+            lambda: 'return x == "TwentyCenFox";'
+          then: 
+            - rtttl.play: "${TwentyCenFox}"
+      - if:
+          condition:
+            lambda: 'return x == "Bond";'
+          then: 
+            - rtttl.play: "${Bond}"
+      - if:
+          condition:
+            lambda: 'return x == "MASH";'
+          then: 
+            - rtttl.play: "${MASH}"
+      - if:
+          condition:
+            lambda: 'return x == "StarWars";'
+          then: 
+            - rtttl.play: "${StarWars}"
+      - if:
+          condition:
+            lambda: 'return x == "GoodBad";'
+          then: 
+            - rtttl.play: "${GoodBad}"
+      - if:
+          condition:
+            lambda: 'return x == "TopGun";'
+          then: 
+            - rtttl.play: "${TopGun}"
+      - if:
+          condition:
+            lambda: 'return x == "ATeam";'
+          then: 
+            - rtttl.play: "${ATeam}"
+      - if:
+          condition:
+            lambda: 'return x == "Flinstones";'
+          then: 
+            - rtttl.play: "${Flinstones}"
+      - if:
+          condition:
+            lambda: 'return x == "Jeopardy";'
+          then: 
+            - rtttl.play: "${Jeopardy}"
+      - if:
+          condition:
+            lambda: 'return x == "Gadget";'
+          then: 
+            - rtttl.play: "${Gadget}"
+      - if:
+          condition:
+            lambda: 'return x == "Smurfs";'
+          then: 
+            - rtttl.play: "${Smurfs}"
+      - if:
+          condition:
+            lambda: 'return x == "MahnaMahna";'
+          then: 
+            - rtttl.play: "${MahnaMahna}"
+      - if:
+          condition:
+            lambda: 'return x == "LeisureSuit";'
+          then: 
+            - rtttl.play: "${LeisureSuit}"
+      - if:
+          condition:
+            lambda: 'return x == "MissionImp";'
+          then: 
+            - rtttl.play: "${MissionImp}"
+      - if:
+          condition:
+            lambda: 'return x == "ItchyScratchy";'
+          then: 
+            - rtttl.play: "${ItchyScratchy}"
+      - if:
+          condition:
+            lambda: 'return x == "AxelF";'
+          then: 
+            - rtttl.play: "${AxelF}"
+      - if:
+          condition:
+            lambda: 'return x == "HappyBirthday";'
+          then: 
+            - rtttl.play: "${HappyBirthday}"
+      - if:
+          condition:
+            lambda: 'return x == "BTTF";'
+          then: 
+            - rtttl.play: "${BTTF}"
+      - if:
+          condition:
+            lambda: 'return x == "Pacman";'
+          then: 
+            - rtttl.play: "${Pacman}"
+      - if:
+          condition:
+            lambda: 'return x == "Holzmichel";'
+          then: 
+            - rtttl.play: "${Holzmichel}"
+      - if:
+          condition:
+            lambda: 'return x == "Larry";'
+          then: 
+            - rtttl.play: "${Larry}"
+            
+            
+            
+            
+            
+#################### using the ACTIVE buzzer requires these configs/YAMLS; ############################
+#substitutions: 
+# active_buzzer: ${D22}
+#switch: 
+#  - !include common/switch/active_buzzer.yaml (THIS IS THE OUTPUT - NO NEED FOR A SEPARATE OUTPUT FILE)
+
+#script:
+#  - !include common/script/slow-alarm.yaml - TURNS THE SWITCH ON AND OFF AS REQUESTED
+#  - !include common/script/fast-alarm.yaml - TURNS THE SWITCH ON AND OFF AS REQUESTED
+
+################################             #############################
+#button:                                                                 #
+#- !include common/button/alarms/fast-alarm.yaml - CALLS THE FAST SCRIPT #
+#- !include common/button/alarms/slow-alarm.yaml - CALLS THE SLOW SCRIPT #
+# CHOOSE EITHER BUTTONS ABOVE OR TRHE DROPDOWN MENU BELOW                #
+# select: !include common/select/alarm_menu.yaml                         #
+##################################          ##############################
+##########################################################################################################
+# requires
+
+#script:
+#  - !include common/switch/restart.yaml
+#  - !include common/switch/safe_mode.yaml
+#  - !include common/switch/shutdown.yaml##### using the PASSIVE buzzer requires these configs/YAMLS; ########
+#substitutions: 
+# passive_buzzer: ${D22} - what pin it is on
+#rtttl: !include common/rtttl/passive_buzzer.yaml - THIS ALLOWS US TO USE rtttl.play  rtttl.pause etc. - THE CONFIG POINTS TO THE PASSIVE BUZZER OUTPUT
+#output: - !include common/output/ledc_passive_buzzer.yaml - OUTPUT POINTS TO PASSIVE BUZZER PIN
+# select: !include common/select/lambda_songs_select.yaml - based on dropdowen selection runs the rtttl.play 

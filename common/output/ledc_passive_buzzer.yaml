@@ -1,0 +1,16 @@
+platform: ledc
+pin: ${passive_buzzer}
+id: passive_buzzer_output
+# frequency: 1000Hz
+# max_power: ${max_power} # set_max_power(0.0 - 1.0)
+inverted: True
+zero_means_zero: True
+min_power: 0.01
+max_power: 1
+
+##### using the PASSIVE buzzer requires these configs/YAMLS; ########
+#substitutions: 
+# passive_buzzer: ${D22} - what pin it is on
+#rtttl: !include common/rtttl/passive_buzzer.yaml - THIS ALLOWS US TO USE rtttl.play  rtttl.pause etc. - THE CONFIG POINTS TO THE PASSIVE BUZZER OUTPUT
+#output: - !include common/output/ledc_passive_buzzer.yaml - OUTPUT POINTS TO PASSIVE BUZZER PIN
+# select: !include common/select/lambda_songs_select.yaml - based on dropdowen selection runs the rtttl.play 

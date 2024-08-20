@@ -1,0 +1,11 @@
+- platform: ledc
+  pin: ${red}
+  id: redled
+
+- platform: ledc
+  pin: ${yellow}
+  id: yellowled
+    
+- platform: ledc
+  pin: ${green}
+  id: greenled

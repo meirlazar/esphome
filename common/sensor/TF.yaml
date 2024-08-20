@@ -1,0 +1,16 @@
+platform: copy 
+source_id: "temperature_celcius"
+name: "temperature_fahrenheit"
+id: temperature_fahrenheit
+accuracy_decimals: 2
+unit_of_measurement: "°F"
+state_class: "measurement"
+device_class: "temperature"
+icon: mdi:temperature-fahrenheit
+web_server_sorting_weight: ${tf_weight}
+filters:
+  - filter_out: nan
+  - multiply: 1.8
+  - offset: +32
+  - lambda: return x;
+

@@ -1,0 +1,13 @@
+    platform: template
+    name: "Door"
+    id: "door"
+    icon: mdi:door
+    update_interval: 5s
+    web_server_sorting_weight: ${ldoor_weight}
+    lambda: |-
+      bool status = bool(id(door_internal).state);
+      if (status == 1){ return {"Door is Open"}; }
+      else if (status == 0){ return {"Door is Closed"}; } 
+      return {};
+      
+      

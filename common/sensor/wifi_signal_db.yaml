@@ -1,0 +1,8 @@
+    platform: wifi_signal 
+    name: "WiFi Signal dB"
+    id: "wifi_signal_db"
+    update_interval: 60s
+    entity_category: "diagnostic"
+    icon: mdi:wifi
+    web_server_sorting_weight: ${wifidb_weight}
+

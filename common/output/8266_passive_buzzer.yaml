@@ -1,0 +1,10 @@
+platform: esp8266_pwm
+pin: ${passive_buzzer}
+id: passive_buzzer_output
+# max_power: ${max_power} # set_max_power(0.0 - 1.0)
+frequency: 1000 Hz
+# max_power: ${max_power} # set_max_power(0.0 - 1.0)
+inverted: True
+zero_means_zero: True
+min_power: 0.01
+max_power: 1

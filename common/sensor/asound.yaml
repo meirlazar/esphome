@@ -1,0 +1,34 @@
+    platform: adc
+    pin: ${asound}
+    id: sound_db
+    device_class: signal_strength
+    name: "Sound"
+    icon: "mdi:volume-vibrate"
+    unit_of_measurement: "db"
+    update_interval: 1s
+    raw: true
+    web_server_sorting_weight: ${asound_weight}
+    filters:
+      - lambda: |-
+          unsigned int sample;
+          unsigned long startMillis= millis(); 
+          float peakToPeak = 0; 
+          unsigned int signalMax = 0;
+          unsigned int signalMin = 1024;
+          while (millis() - startMillis < 100) {
+            sample = analogRead(A0);
+            if (sample < 1024){
+                if (sample > signalMax){
+                    signalMax = sample;
+                }
+                else if (sample < signalMin){
+                    signalMin = sample;
+                }
+              }
+          }
+          peakToPeak = map((signalMax - signalMin),1,1024,1.5,1024);
+          id(sound_volume) = peakToPeak;
+          float state = id(sound_sensitivity)*log10(peakToPeak)+15;  
+          return(state);
+
+

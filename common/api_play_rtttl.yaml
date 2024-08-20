@@ -1,0 +1,16 @@
+encryption:
+  key: ${apikey}
+reboot_timeout: 180s
+  
+services:
+- service: rtttl_play
+  variables:
+    song_str: string
+    volume: int # 1-100
+  then:
+          # - lambda: "id(script_rtttl_play).execute(song_str, volume);"
+  - rtttl.play:
+      rtttl: !lambda 'return song_str;'
+#  - output.turn_off: passive_buzzer_output   
+
+        

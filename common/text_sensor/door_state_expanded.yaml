@@ -1,0 +1,65 @@
+    platform: template
+    name: "binary_states"
+    internal: true
+    id: "bin_states"
+    update_interval: 1s
+    - lambda: |-
+      if (id(door).state == "1"){
+        id(door).publish_state("Open"); }
+      else if (id(door).state == "0"){
+        id(door).publish_state("Closed"); }
+      if (id(window).state == "1"){
+        id(window).publish_state("Open"); }
+      else if (id(window).state == "0"){
+        id(window).publish_state("Closed"); }
+
+
+
+    on_value:
+    - if:
+      condition:
+        for: 
+          time: 1min
+          condition: 
+ #         - binary_sensor.is_on: binary_sensor.door.sensor
+           binary_sensor.state:
+             id: door
+             state:
+         then:
+        - lambda: 'return {"Door was left Opened"}';
+    
+    - if:
+      condition:
+      - binary_sensor.is_on: binary_sensor.door.sensor
+         then:
+        - lambda: 'return {"Door is Open"}';
+        - lambda: 
+        id(my_sensor).publish_state("Hello World");
+
+        
+        - lambda: 'return {"Door is Open"}';
+        
+    lambda: |-
+      bool status = bool(id(door_internal).state);
+      if (status == 1){ return {"Door is Open"}; }
+      else if (status == 0){ return {"Door is Closed"}; } 
+      return {};
+      
+      
+      
+            lambda: |-
+              bool door_state = bool(id(door).state);
+                if (door_state == 1){ return {"Door is Open"}; }
+          - binary_sensor.is_on: binary_sensor.door.sensor
+         then:
+        - lambda: 'return {"Door was left Opened"}';
+        
+        
+        - lambda: 'return {"Door is Open"}';
+        
+    lambda: |-
+      bool status = bool(id(door_internal).state);
+      if (status == 1){ return {"Door is Open"}; }
+      else if (status == 0){ return {"Door is Closed"}; } 
+      return {};
+      

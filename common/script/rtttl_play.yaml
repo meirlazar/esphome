@@ -1,0 +1,13 @@
+    id: script_rtttl_play
+    parameters:
+      song: string
+      volume: int # 1-100; 0 means unset
+    mode: single
+    then:
+      # - lambda: |-
+      #     ESP_LOGI("app", "script_rtttl_play - %s, %d", song.c_str(), volume);
+      - lambda: |-
+          float volume_f = (volume>0) ? ((float)clamp(volume, 0, 100))/100.0f : 1.0f;
+          id(passive_buzzer_output).set_max_power(volume_f);
+      - rtttl.play:
+          rtttl: !lambda 'return (song.find('':'') == std::string::npos) ? ("song:d=16,o=5,b=100:" + song).c_str() : song.c_str();'

@@ -1,0 +1,8 @@
+    platform: template
+    name: "Volume Sound"
+    icon: "mdi:volume-high"
+    unit_of_measurement: "%"
+    update_interval: 5s
+    lambda: return(map((id(sound_db).state),15,150,0,100));
+    web_server_sorting_weight: ${vol_weight}
+    

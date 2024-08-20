@@ -1,0 +1,17 @@
+platform: copy 
+source_id: "temperature"
+name: "temperature_celcius"
+id: temperature_celcius
+accuracy_decimals: 2
+unit_of_measurement: "°C"
+state_class: "measurement"
+device_class: "temperature"
+icon: mdi:temperature-celcius
+web_server_sorting_weight: ${tc_weight}
+filters:
+  - filter_out: nan
+  - offset: -32
+  - multiply: 0.555555556
+  - lambda: return x;
+
+

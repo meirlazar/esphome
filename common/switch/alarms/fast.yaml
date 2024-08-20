@@ -1,0 +1,17 @@
+################################  DO NOT TOUCH - WORKING !!!! #################################
+platform: template
+name: "fast_buzzer_switch"
+id: fast_buzzer_switch
+internal: true # remove internal to show it in the webui
+on_turn_on:
+ then:
+   - repeat:
+       count: 10
+       then:
+       - switch.turn_on: active_buzzer
+       - delay: 250ms                
+       - switch.turn_off: active_buzzer   
+       - delay: 250ms
+    
+ 
+                  

@@ -1,0 +1,40 @@
+    - id: fast_alarm_script
+      on_press:
+      then:
+      - repeat:
+        count: 30
+        then:
+        - switch.turn_on: active_buzzer
+        - delay: 100ms
+        - switch.turn_off: active_buzzer
+        - delay: 50ms
+        
+    - id: slow_alarm_script
+      on_press:
+      then:
+      - repeat:
+        count: 8
+        then:
+        - switch.turn_on: active_buzzer
+        - delay: 1s
+        - switch.turn_off: active_buzzer
+        - delay: 500ms
+          
+      ##### using the ACTIVE buzzer requires these configs/YAMLS; ########
+#substitutions: 
+# active_buzzer: ${D22}
+#switch: 
+#  - !include common/switch/active_buzzer.yaml (THIS IS THE OUTPUT - NO NEED FOR A SEPARATE OUTPUT FILE)
+#button:
+#- !include common/button/alarms/alarms.yaml - CALLS THE SLOW3 SCRIPT
+#script:
+#  - !include common/script/alarms.yaml - TURNS THE SWITCH ON AND OFF AS REQUESTED
+##### using the ACTIVE buzzer requires these configs/YAMLS; ########
+#substitutions: 
+# active_buzzer: ${D22}
+#switch: 
+#  - !include common/switch/active_buzzer.yaml (THIS IS THE OUTPUT - NO NEED FOR A SEPARATE OUTPUT FILE)
+#button:
+#- !include common/button/alarms/alarms.yaml - CALLS THE SLOW3 SCRIPT
+#script:
+#  - !include common/script/alarms.yaml - TURNS THE SWITCH ON AND OFF AS REQUESTED

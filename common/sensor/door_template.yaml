@@ -1,0 +1,23 @@
+    - platform: gpio
+      friendly_name: 'Door'
+      value_template: '{% if states.binary_sensor.door %}
+        {% if states.binary_sensor.door.state == "on" %}
+          Open
+        {% else %}
+          Closed
+        {% endif %}
+        {% else %}
+          N/A
+        {% endif %}'
+        
+    - platform: gpio
+      friendly_name: 'Window'
+      value_template: '{% if states.binary_sensor.window %}
+        {% if states.binary_sensor.window.state == "on" %}
+            Open
+        {% else %}
+            Closed
+        {% endif %}
+        {% else %}
+            N/A
+        {% endif %}'

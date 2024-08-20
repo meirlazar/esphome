@@ -1,0 +1,53 @@
+
+  # ESPHome Firmware Version
+  - platform: version
+    name: ESPHome Version
+ 
+  # Wifi Info https://esphome.io/components/text_sensor/wifi_info.html
+  - platform: wifi_info
+    ip_address:
+      name: IP Address
+    ssid:
+      name: Connected SSID
+    bssid:
+      name: Connected BSSID
+    mac_address:
+      name: Mac Wifi Address
+    scan_results:
+      name: Latest Scan Results    
+      
+  - platform: template
+    name: "Noise level"
+    id: "noise_level"
+    icon: mdi:volume-plus
+    update_interval: 5s
+    web_server_sorting_weight: ${noise_weight}
+    lambda: |-
+      float db = float(id(sound_db).state);
+      if (db >= 194){ return {"Threshold of sound"}; }
+      else if (db >= 190){ return {"Grenade Epicenter"}; } 
+      else if (db >= 180){ return {"1 pound of TNT from 5 meters away"}; } 
+      else if (db >= 170){ return {"Rocket Ship launch from 100 meters away"}; }       
+      else if (db >= 160){ return {"Rifle, Fireworks at 3 feet away"}; } 
+      else if (db >= 150){ return {"Jet Engine at take off"}; }       
+      else if (db >= 140){ return {"fireworks, gunshot"}; } 
+      else if (db >= 130){ return {"Jackhammer, Ambulance"}; } 
+      else if (db >= 125){ return {"Chainsaw"}; } 
+      else if (db >= 120){ return {"Thunder, Concerts, Jet taking off"}; } 
+      else if (db >= 110){ return {"Nightclubs, sporting events, car honking"}; } 
+      else if (db >= 105){ return {"Snow Blower"}; } 
+      else if (db >= 100){ return {"Motorcycles, hand dryers"}; } 
+      else if (db >= 95){ return {"Electric Drill"}; }       
+      else if (db >= 90){ return {"Hairdryers, blenders, saxophone"}; } 
+      else if (db >= 80){ return {"Police car siren, a busy restaurant, alarm clock"}; } 
+      else if (db >= 75){ return {"Toilet flushing"}; } 
+      else if (db >= 70){ return {"Vacuum cleaners, traffic, washing machine"}; } 
+      else if (db >= 60){ return {"Normal conversation, dishwashers, electric toothbrush"}; } 
+      else if (db >= 55){ return {"Coffee Percolator"}; } 
+      else if (db >= 50){ return {"Moderate rainfall"}; } 
+      else if (db >= 40){ return {"Refrigerator hum, a quiet office, Library"}; }  
+      else if (db >= 30){ return {"A whisper"}; }  
+      else if (db >= 20){ return {"Leaves rustling, a ticking watch"}; }  
+      else if (db >= 10){ return {"Normal breathing"}; }  
+      else if (db >= 0){ return {"The softest sound a person can hear with normal hearing"}; }
+      return {};

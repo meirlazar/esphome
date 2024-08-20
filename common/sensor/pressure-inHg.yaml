@@ -1,0 +1,15 @@
+platform: copy 
+source_id: "pressure_hPa"
+name: "pressure_inHg"
+id: "pressure_inHg"
+unit_of_measurement: "inHg"
+accuracy_decimals: 2
+web_server_sorting_weight: ${pressinHg_weight}
+icon: mdi:gauge
+filters:
+  - filter_out: nan
+  - multiply: 0.029529983071445
+#  - round: 2
+#  - lambda: return printf ( "%.2f", x);
+
+

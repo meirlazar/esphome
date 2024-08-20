@@ -1,0 +1,4 @@
+platform: gpio
+pin: ${led1}
+id: light_output1
+inverted: False

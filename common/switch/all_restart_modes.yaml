@@ -1,0 +1,27 @@
+################################  DO NOT TOUCH - WORKING !!!! #################################
+
+- platform: restart
+  id: restart_switch
+  name: restart_switch
+  icon: mdi:restart-alert 
+  entity_category: "config"
+  internal: true
+
+- platform: shutdown
+  id: shutdown_switch
+  name: shutdown_switch
+  icon: mdi:restart
+  entity_category: "config"
+  internal: true
+  
+- platform: safe_mode
+  id: safemode_switch
+  name: safemode_switch
+  icon: mdi:restart-alert 
+  entity_category: "config"
+  internal: true
+
+
+
+# this is internal only, use;
+#select:  !include common/select/restart_menu.yaml

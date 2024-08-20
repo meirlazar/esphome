@@ -1,0 +1,17 @@
+
+  networks:
+  - ssid: ${wifi}_IOT
+    password: ${wifipass}
+  - ssid: ${wifi}_2G
+    password: ${wifipass}
+  - ssid: ${wifi}
+    password: ${wifipass}
+  manual_ip:
+    static_ip: ${staticip}
+    gateway: x.x.x.x
+    subnet: x.x.x.x
+  use_address: ${staticip}
+  
+  ap:
+    ssid: ${sname}-HotSpot
+    password: ${wifipass}

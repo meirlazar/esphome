@@ -1,0 +1,55 @@
+platform: bme280_i2c
+address: 0x77
+update_interval: 3s
+iir_filter: 2x
+
+temperature:
+  name: "temperature_celicus"
+  id: "temperature_celcius"
+  oversampling: 2x
+  web_server_sorting_weight: ${tc_weight}
+  filters:
+ # - offset: 32.0
+ # - multiply: 1.8
+  - sliding_window_moving_average:
+      window_size: 5
+      send_every: 5
+pressure:
+  name: "pressure_hPa"
+  id: "pressure_hPa"
+  oversampling: 2x
+  unit_of_measurement: "hPa"
+  accuracy_decimals: 2
+ # icon: "mdi:water-percent"
+ # device_class: "temperature"
+  state_class: "measurement"
+  filters:
+#  - multiply: 0.0009869233
+  - median:
+      window_size: 5
+      send_every: 5
+      send_first_at: 1
+  web_server_sorting_weight: ${presshPa_weight}
+  
+humidity:
+  name: humidity
+  id: humidity
+  oversampling: 2x
+  filters:
+  - filter_out: nan
+  - heartbeat: 10s
+  - sliding_window_moving_average:
+      window_size: 9
+      send_every: 9
+  - or:
+    - throttle: 30s
+    - delta: 0.2
+  accuracy_decimals: 2
+  unit_of_measurement: "%"
+  device_class: "humidity"
+  state_class: "measurement"
+  icon: mdi:water-thermometer
+  web_server_sorting_weight: ${hum_weight}
+
+
+# SENSOR HELP - https://esphome.io/components/sensor/index.html

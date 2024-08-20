@@ -1,0 +1,17 @@
+
+  # ESPHome Firmware Version
+  - platform: version
+    name: ESPHome Version
+ 
+  # Wifi Info https://esphome.io/components/text_sensor/wifi_info.html
+  - platform: wifi_info
+    ip_address:
+      name: IP Address
+    ssid:
+      name: Connected SSID
+    bssid:
+      name: Connected BSSID
+    mac_address:
+      name: Mac Wifi Address
+    scan_results:
+      name: Latest Scan Results

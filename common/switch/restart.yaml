@@ -1,0 +1,7 @@
+platform: restart
+name: Restart Switch
+id: restart_switch
+icon: mdi:restart
+entity_category: "config"
+web_server_sorting_weight:  400
+

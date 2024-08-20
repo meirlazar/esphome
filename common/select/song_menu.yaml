@@ -1,0 +1,58 @@
+  platform: template
+  name: song_menu
+  id: song_menu
+  icon: mdi:format-list-bulleted
+  optimistic: true
+  restore_value: false
+  initial_option: ""
+  options:
+  - ""
+  - "mario_main"
+  - "mario_title"
+  - "SMBtheme"
+  - "SMBwater"
+  - "SMBunderground"
+  - "Picaxe"
+  - "Simpsons"
+  - "Indiana"
+  - "TakeOnMe"
+  - "Entertainer"
+  - "Muppets"
+  - "Xfiles"
+  - "Looney"
+  - "TwentyCenFox"
+  - "Bond"
+  - "MASH"
+  - "StarWars"
+  - "GoodBad"
+  - "TopGun"
+  - "ATeam"
+  - "Flinstones"
+  - "Jeopardy"
+  - "Gadget"
+  - "Smurfs"
+  - "MahnaMahna"
+  - "LeisureSuit"
+  - "MissionImp"
+ # set_action:
+ #     then:
+    #  - lambda: id(rtttl.play).execute(x, 100);
+      
+    # - lambda: "id(rtttl_play).execute(x, 100);"
+    # lambda: |- error in CONF_RESTORE_VALUE
+  #         return {""};
+   #   - rtttl.play: id(song_menu).state
+  on_value:
+    then:
+      logger.log: 
+      - lambda: |-
+          string x = '';
+          x = id(song_menu).state;
+      - rtttl.play: ${x} # id(song_menu).state
+  
+  #on_value:
+  #  lambda: |-
+  #    if ( id(song_menu).state != "" ){ 
+  #      (id(song_menu).state).rtttl.play(x);
+  #    }
+ 
